@@ -126,12 +126,14 @@ export PATH=/usr/local/openjdk17/bin/:$PATH
 #### 4. Update Database Credentials
 
 - Provide the correct login and password in the `resources/db.cfg` file.
+- Also, **manually** create database schema in /studs (`pslq -h pg -d studs`) and add it to `java/example/entity/ResultEntity` class
 
 > Same credentials from `.pgpass`
 
 #### 5. Build and Deploy
 
-- Build the Maven `.war` archive and deploy it to the server using my [deploy.sh](./deploy.sh):
+- Build the Maven `.war` archive
+- In my [deploy.sh](./deploy.sh): change `sXXXXX` with your ISU and deploy it to the server:
 
 ```bash
 ./deploy.sh
