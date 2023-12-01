@@ -126,7 +126,7 @@ export PATH=/usr/local/openjdk17/bin/:$PATH
 #### 4. Update Database Credentials
 
 - Provide the correct login and password in the `resources/db.cfg` file.
-- Also, **manually** create database schema in /studs (`pslq -h pg -d studs`) and add it to `java/example/entity/ResultEntity` class
+- Also, **manually** create database schema in /studs (`psql -h pg -d studs`) and add it to `java/example/entity/ResultEntity` class
 
 > Same credentials from `.pgpass`
 
