@@ -2,6 +2,7 @@ package example.db;
 
 import example.entity.ResultEntity;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.criteria.Root;
 
 import java.util.Collection;
@@ -46,8 +47,23 @@ public class ResultDAOImpl implements ResultDAO {
         entityManager.getTransaction().commit();
     }
 
+    /**
+     * This method also handles transaction rollback in case of an error.
+     */
     @Override
     public void clearResults() {
-        entityManager.clear();
+        entityManager.getTransaction().begin();
+        try {
+            Query query = entityManager.createQuery("DELETE FROM ResultEntity r");
+            query.executeUpdate();
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            throw e; // Or handle the exception as needed
+        } finally {
+            entityManager.clear();
+        }
     }
 }
