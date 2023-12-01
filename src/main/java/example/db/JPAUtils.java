@@ -1,11 +1,13 @@
-package com.example.eclipselinkormjsfdemo.worthant.jsfgraph.db;
+package example.db;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import lombok.Getter;
 
 import java.util.Properties;
 
 public class JPAUtils {
+    @Getter
     private static final EntityManagerFactory factory;
 
     static {
@@ -19,7 +21,4 @@ public class JPAUtils {
         }
     }
 
-    public static EntityManagerFactory getFactory() {
-        return factory;
-    }
 }

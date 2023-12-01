@@ -20,7 +20,7 @@
 <h:body>
     <h:form>
         <h:outputLabel for="x" value="Coordinate X (-5; 5)"/>
-        <h:inputText id="x" styleClass="coords-input" value="#{xBean.XBeanValue}"
+        <h:inputText id="x" styleClass="coords-input" value="#{xBean.x}"
                      required="true" maxlength="7"
                      requiredMessage="Value X is required"
                      validatorMessage="The value must be from -5 to 5">
@@ -29,7 +29,7 @@
         </h:inputText>
 
         <h:commandButton value="Send" styleClass="submit-btn">
-            <f:ajax execute="@form" listener="#{resultsControllerBean.addResult(xBean.XBeanValue)}" render="@form results-table"/>
+            <f:ajax execute="@form" listener="#{resultsControllerBean.addResult(xBean.x)}" render="@form results-table"/>
         </h:commandButton>
     </h:form>
 

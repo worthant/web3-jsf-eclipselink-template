@@ -1,11 +1,15 @@
-package com.example.eclipselinkormjsfdemo.worthant.jsfgraph.db;
+package example.db;
 
-import com.example.eclipselinkormjsfdemo.worthant.jsfgraph.entity.ResultEntity;
+import example.entity.ResultEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.Root;
 
 import java.util.Collection;
 
+/**
+ * Implementation of the ResultDAO interface using JPA (Java Persistence API).
+ * Handles database operations for ResultEntity objects.
+ */
 public class ResultDAOImpl implements ResultDAO {
     private final EntityManager entityManager = JPAUtils.getFactory().createEntityManager();
 
